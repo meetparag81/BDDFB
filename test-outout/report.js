@@ -1,4 +1,4 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("G:/Javaprogramming/FacebookBDD/src/main/java/features/Login.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("G:/Javaprogramming/FBBDD/FacebookBDD/src/main/java/features/Login.feature");
 formatter.feature({
   "line": 1,
   "name": "FacebookLogin",
@@ -21,7 +21,7 @@ formatter.step({
 });
 formatter.step({
   "line": 4,
-  "name": "Title of login page is freecrm",
+  "name": "Title of login page is facebook",
   "keyword": "When "
 });
 formatter.step({
@@ -39,24 +39,51 @@ formatter.step({
   "name": "user is on home page",
   "keyword": "Then "
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.step({
+  "line": 8,
+  "name": "user close the browser",
+  "keyword": "Then "
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.match({
+  "location": "LoginStepDefination.user_is_already_on_login_page()"
 });
-formatter.match({});
 formatter.result({
-  "status": "undefined"
+  "duration": 42491062285,
+  "status": "passed"
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.match({
+  "location": "LoginStepDefination.title_of_login_page_is_freTitleOfLoginpageisFacebook()"
 });
-formatter.match({});
 formatter.result({
-  "status": "undefined"
+  "duration": 29793318,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LoginStepDefination.user_enters_username_and_password()"
+});
+formatter.result({
+  "duration": 340648917,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LoginStepDefination.user_clicks_on_login_button()"
+});
+formatter.result({
+  "duration": 22630021,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LoginStepDefination.user_is_on_home_page()"
+});
+formatter.result({
+  "duration": 6930979,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LoginStepDefination.user_close_the_browser()"
+});
+formatter.result({
+  "duration": 3180227833,
+  "status": "passed"
 });
 });

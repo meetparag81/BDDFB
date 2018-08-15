@@ -10,9 +10,11 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		features = "G:\\Javaprogramming\\FBBDD\\FacebookBDD\\src\\main\\java\\features\\Login.feature",
 		glue= {"StepDefinations"},
-		plugin={"pretty","html:test-outout","json:json_output/cucumber.json", "junit:junit_xml/cucumber.xml"},
+		format={"pretty","html:test-outout","json:json_output/cucumber.json", "junit:junit_xml/cucumber.xml"},
 		monochrome=true,
+			strict = true, //it will check if any step is not defined in step definition file
 		dryRun = false)
+
 
 public class TestRunner 
 {		

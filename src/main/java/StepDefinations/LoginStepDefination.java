@@ -2,58 +2,46 @@ package StepDefinations;
 import org.openqa.selenium.By;
 //small modification
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
+
+
+import com_FB_Base.TestBase;
+import com_FB_Page.LoginPage;
+import com_FB_Page.HomePage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import junit.framework.Assert;
 
-public class LoginStepDefination 
+public class LoginStepDefination extends TestBase 
 {
+	LoginPage LoginPage;
+	HomePage HomePage;
+	
+
 	WebDriver driver;
 	@Given("^user is already on login page$")
 	public void user_is_already_on_login_page() 
 	{
-		System.setProperty("webdriver.gecko.driver","G:\\Javaprogramming\\Selenium\\Selenium Setup\\geckodriver.exe");
-		driver = new FirefoxDriver();
-	 driver.get("https://www.facebook.com");
-	    
-	    
+		TestBase.initalization();	
 	}
 
-	@When("^Title of login page is facebook$")
-	public void title_of_login_page_is_freTitleOfLoginpageisFacebook() 
+	@When("^Login page Title is facebook$")
+	public void Loginpage_Title_is_facebook() 
 	{
-	
-		String Actual= driver.getTitle();
-		System.out.println(Actual);
-	 String Expected= "Facebook – log in or sign up";
+		LoginPage = new LoginPage();
+		String Actual= LoginPage.validateloginpagetitle();
+		String Expected= "Facebook – log in or sign up";
 	 Assert.assertEquals(Expected, Actual);
 	    
 	}
 
-	@Then("^user enters username and password$")
-	public void user_enters_username_and_password() 
-	{
-		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("paragborawake81@gmail.com");
-		driver.findElement(By.xpath("//input[@id='pass']")).sendKeys("borawake81");
-	  
-	    
-	}
+	
 
-	@Then("^user clicks on login button$")
-	public void user_clicks_on_login_button() 
+	@Then("^userisonHomePage\"([^\"]*)\" and \"([^\"]*)\"$")
+	public void user_is_on_home_page(String un, String psw) 
 	{
-	  WebElement login=  driver.findElement(By.xpath("//input[@id='u_0_3']"));
-	  System.out.println("Login button is enabled"+ login.isEnabled());
-	    
-	}
-
-	@Then("^user is on home page$")
-	public void user_is_on_home_page() throws Throwable 
-	{
+		HomePage = LoginPage.LogintoFB(un, psw);
 	   String Actual= driver.getTitle();
 	   System.out.println(Actual);
 	    

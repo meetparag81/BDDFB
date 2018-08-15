@@ -1,8 +1,10 @@
 Feature: FacebookLogin
-Scenario: FacebookLoginTest
+Scenario Outline: FacebookLoginTest
 Given user is already on login page
-When Title of login page is facebook
- Then user enters username and password
- Then user clicks on login button
- Then user is on home page
+When Login page Title is facebook
+Then userisonHomePage"<username>" and "<password>"
  Then user close the browser
+ Examples:
+	| username | password |
+	| paragborawake81@gmail.com | paragborawake81 |
+	
